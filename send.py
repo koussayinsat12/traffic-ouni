@@ -37,7 +37,7 @@ class MQTTDataPublisher:
 
 # Usage
 if __name__ == "__main__":
-    broker_address = "169.254.248.120" 
+    broker_address = "192.168.168.128" 
     topic = "sensor/data"  
     
     sim = Simulator(seed=12345, mean=20, standard_deviation=5)
