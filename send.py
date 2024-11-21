@@ -40,7 +40,7 @@ if __name__ == "__main__":
     broker_address = "192.168.168.128" 
     topic = "sensor/data"  
     
-    sim = Simulator(seed=12345, mean=20, standard_deviation=5)
+    sim = Simulator(seed=12345, mean=20, standard_deviation=0.5)
     data_set = [sim.calculate_next_value() for _ in range(100000)]
     
     publisher = MQTTDataPublisher(broker_address, topic)

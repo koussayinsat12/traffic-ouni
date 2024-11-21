@@ -59,6 +59,16 @@ class DataAggregator:
             i += 1
         return moving_averages
     
+    def next_time_interval(self):
+        while True:
+           
+            n = random.random()  
+            inter_event_time = -math.log(1.0 - n) 
+           
+            if 0.5 <= inter_event_time <= 1.0:
+                return inter_event_time
+    
+    
     def publish_to_cloud(self):
         
         
@@ -112,9 +122,9 @@ class DataAggregator:
             start_time = time.time()
             
 
-            print(f"Collecting data and publishing every {self.sampling_interval} seconds... Press Ctrl+C to stop.")
+            print(f"Collecting data and publishing every {self.next_time_interval} seconds... Press Ctrl+C to stop.")
             while True:
-                time.sleep(self.sampling_interval)
+                time.sleep(self.next_time_interval)
                 self.publish_to_cloud()
                 
                 exec_time = time.time()-start_time
